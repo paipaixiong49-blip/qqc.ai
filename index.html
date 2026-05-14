@@ -4,33 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ★ X / Twitter Card 核心标签 -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="飞机服务站" />
-  <meta name="twitter:description" content="14,312 subscribers · Telegram 频道 @fjfwz" />
-  <meta name="twitter:image" content="https://i.ibb.co/5hzvJcRt/44.png" />
-  <meta name="twitter:image:alt" content="飞机服务站频道头像" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="点击播放完整版" />
+  <meta name="twitter:description" content="点击立即观看完整版" />
+  <meta name="twitter:image" content="https://i.ibb.co/0RDCGh3T/Chat-GPT-Image-2026-5-14-17-13-46.png" />
+  <meta name="twitter:image:alt" content="点击播放完整版" />
 
-  <!-- ★ Open Graph 标签（X 也会读取） -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="飞机服务站" />
-  <meta property="og:description" content="14,312 subscribers · Telegram 频道 @fjfwz" />
-  <meta property="og:image" content="https://i.ibb.co/5hzvJcRt/44.png" />
-  <meta property="og:image:width" content="400" />
-  <meta property="og:image:height" content="400" />
-  <meta property="og:url" content="https://qqc.ai/" />
-  <meta property="og:site_name" content="飞机服务站" />
+  <meta property="og:title" content="点击播放完整版" />
+  <meta property="og:description" content="点击立即观看完整版" />
+  <meta property="og:image" content="https://i.ibb.co/0RDCGh3T/Chat-GPT-Image-2026-5-14-17-13-46.png" />
+  <meta property="og:url" content="https://93kkp.xyz/" />
+  <meta property="og:site_name" content="点击播放完整版" />
 
-  <title>飞机服务站 — Telegram 频道</title>
+  <title>点击播放完整版</title>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Noto Sans SC', sans-serif;
-      background: #0d0f12;
+      background: #0a1a0a;
       color: #e8eaf0;
       min-height: 100vh;
       display: flex;
@@ -38,117 +32,91 @@
       justify-content: center;
       overflow: hidden;
     }
-
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 30% 20%, rgba(255,90,50,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 75% 80%, rgba(255,50,100,0.10) 0%, transparent 70%);
+        radial-gradient(ellipse 60% 50% at 30% 20%, rgba(0,180,80,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 75% 80%, rgba(0,150,60,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-
     .card {
       position: relative;
       background: rgba(255,255,255,0.04);
       border: 0.5px solid rgba(255,255,255,0.10);
       border-radius: 24px;
-      padding: 48px 40px 40px;
-      width: 340px;
+      padding: 32px 28px 32px;
+      width: 360px;
       text-align: center;
       backdrop-filter: blur(12px);
       animation: rise 0.6s cubic-bezier(0.22,1,0.36,1) both;
     }
-
     @keyframes rise {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    .avatar {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
+    .banner {
+      width: 100%;
+      border-radius: 14px;
       margin: 0 auto 20px;
       object-fit: cover;
-      box-shadow: 0 0 0 3px rgba(100,200,100,0.25);
       display: block;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
-
+    .play-icon {
+      font-size: 13px;
+      color: rgba(232,234,240,0.40);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
     .name {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       letter-spacing: 0.01em;
-      margin-bottom: 6px;
+      margin-bottom: 20px;
+      color: #fff;
     }
-
-    .meta {
-      font-size: 13px;
-      color: rgba(232,234,240,0.50);
-      margin-bottom: 28px;
+    .progress-wrap {
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      height: 4px;
+      margin-bottom: 24px;
+      overflow: hidden;
     }
-
-    .meta span {
-      color: rgba(232,234,240,0.70);
+    .progress-bar {
+      height: 4px;
+      width: 68%;
+      background: linear-gradient(90deg, #00b84a, #6dffaa);
+      border-radius: 4px;
     }
-
-    .handles {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 32px;
-    }
-
-    .handle {
-      font-size: 13px;
-      color: rgba(232,234,240,0.45);
-    }
-    .handle a {
-      color: #ff7a52;
-      text-decoration: none;
-    }
-    .handle a:hover { text-decoration: underline; }
-
     .btn {
       display: block;
       width: 100%;
       padding: 14px;
-      background: linear-gradient(135deg, #ff6a38, #ff2d6b);
+      background: linear-gradient(135deg, #00b84a, #008f38);
       color: #fff;
       font-family: inherit;
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 600;
       border: none;
       border-radius: 14px;
       cursor: pointer;
       text-decoration: none;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
       transition: opacity 0.15s, transform 0.15s;
     }
     .btn:hover  { opacity: 0.88; transform: translateY(-1px); }
     .btn:active { opacity: 1;    transform: scale(0.98); }
-
     .footer {
-      margin-top: 20px;
+      margin-top: 16px;
       font-size: 11px;
       color: rgba(232,234,240,0.22);
     }
-
-    .count-badge {
-      display: inline-block;
-      background: rgba(255,106,56,0.15);
-      color: #ff9070;
-      font-size: 12px;
-      padding: 2px 10px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
   </style>
 
-  <!-- 3秒后自动跳转，用户也可手动点击 -->
   <script>
-    var target = "https://t.me/v000";
+    var target = "https://93kkp.xyz/";
     var countdown = 3;
     function tick() {
       var el = document.getElementById('cd');
@@ -163,14 +131,11 @@
 </head>
 <body>
   <div class="card">
-    <img class="avatar" src="https://i.ibb.co/5hzvJcRt/44.png" alt="头像" />
-    <div class="name">飞机服务站</div>
-    <div class="count-badge">14,312 subscribers</div>
-    <div class="handles">
-      <div class="handle">主频道 <a href="https://t.me/v000">t.me/v000</a></div>
-      <div class="handle">备用 <a href="https://t.me/fjfwz">@fjfwz</a> · <a href="https://t.me/feijifuwuzhan">@feijifuwuzhan</a></div>
-    </div>
-    <a class="btn" href="https://t.me/v000">立即加入频道 →</a>
+    <img class="banner" src="https://i.ibb.co/0RDCGh3T/Chat-GPT-Image-2026-5-14-17-13-46.png" alt="青青草视频" />
+    <div class="play-icon">▶ 正在播放</div>
+    <div class="name">点击播放完整版</div>
+    <div class="progress-wrap"><div class="progress-bar"></div></div>
+    <a class="btn" href="https://93kkp.xyz/">立即观看完整版 →</a>
     <div class="footer"><span id="cd">3</span> 秒后自动跳转</div>
   </div>
 </body>

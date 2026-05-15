@@ -1,142 +1,280 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="点击播放完整版" />
-  <meta name="twitter:description" content="点击立即观看完整版" />
-  <meta name="twitter:image" content="https://i.ibb.co/0RDCGh3T/Chat-GPT-Image-2026-5-14-17-13-46.png" />
-  <meta name="twitter:image:alt" content="点击播放完整版" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="点击播放完整版" />
-  <meta property="og:description" content="点击立即观看完整版" />
-  <meta property="og:image" content="https://i.ibb.co/0RDCGh3T/Chat-GPT-Image-2026-5-14-17-13-46.png" />
-  <meta property="og:url" content="https://93kkp.xyz/" />
-  <meta property="og:site_name" content="点击播放完整版" />
-
-  <title>点击播放完整版</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青青草视频 - 有趣有料</title>
+  <meta name="description" content="精品视频内容平台">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Noto Sans SC', sans-serif;
-      background: #0a1a0a;
-      color: #e8eaf0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #0a1f1a 0%, #0d2d24 100%);
       min-height: 100vh;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      padding: 20px;
     }
-    body::before {
-      content: '';
+
+    /* 年龄验证弹窗 */
+    .age-gate {
       position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 30% 20%, rgba(0,180,80,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 75% 80%, rgba(0,150,60,0.08) 0%, transparent 70%);
-      pointer-events: none;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
     }
-    .card {
-      position: relative;
-      background: rgba(255,255,255,0.04);
-      border: 0.5px solid rgba(255,255,255,0.10);
-      border-radius: 24px;
-      padding: 32px 28px 32px;
-      width: 360px;
+    .age-gate-box {
+      background: #1a2e28;
+      border: 1px solid #2d5a4a;
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 400px;
       text-align: center;
-      backdrop-filter: blur(12px);
-      animation: rise 0.6s cubic-bezier(0.22,1,0.36,1) both;
     }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .age-gate-box h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: #4ade80;
     }
-    .banner {
+    .age-gate-box p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .age-gate-btns {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* 主内容 */
+    .main-container {
+      max-width: 420px;
       width: 100%;
-      border-radius: 14px;
-      margin: 0 auto 20px;
-      object-fit: cover;
-      display: block;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      display: none;
     }
-    .play-icon {
-      font-size: 13px;
-      color: rgba(232,234,240,0.40);
-      letter-spacing: 0.05em;
+    .main-container.active { display: block; }
+    
+    .card {
+      background: rgba(20, 40, 35, 0.6);
+      border: 1px solid #2d5a4a;
+      border-radius: 20px;
+      padding: 30px 24px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .logo-box {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .logo-box img {
+      max-width: 80%;
+      height: auto;
+    }
+    .logo-text {
+      color: #22c55e;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 8px;
+    }
+    .logo-subtitle {
+      color: #64748b;
+      font-size: 14px;
+      letter-spacing: 4px;
+      margin-top: 4px;
+    }
+
+    .preview-img {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      filter: blur(2px);
+    }
+    .preview-img::after {
+      content: "🔒 完整版需下载 APP";
+      position: absolute;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      filter: blur(0);
+      background: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .status-text {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
       margin-bottom: 8px;
     }
-    .name {
+    .title {
+      text-align: center;
       font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.01em;
+      font-weight: bold;
       margin-bottom: 20px;
-      color: #fff;
     }
-    .progress-wrap {
-      background: rgba(255,255,255,0.08);
-      border-radius: 4px;
+    .progress-bar {
+      width: 100%;
       height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
       margin-bottom: 24px;
       overflow: hidden;
     }
-    .progress-bar {
-      height: 4px;
-      width: 68%;
-      background: linear-gradient(90deg, #00b84a, #6dffaa);
-      border-radius: 4px;
+    .progress-bar-inner {
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      border-radius: 2px;
     }
-    .btn {
-      display: block;
+
+    .download-btn {
       width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #00b84a, #008f38);
-      color: #fff;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
       border: none;
+      padding: 18px;
       border-radius: 14px;
+      font-size: 18px;
+      font-weight: 700;
       cursor: pointer;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: opacity 0.15s, transform 0.15s;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
     }
-    .btn:hover  { opacity: 0.88; transform: translateY(-1px); }
-    .btn:active { opacity: 1;    transform: scale(0.98); }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(34, 197, 94, 0.6);
+    }
+
+    .features {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
     .footer {
-      margin-top: 16px;
+      margin-top: 20px;
+      text-align: center;
+      color: #475569;
       font-size: 11px;
-      color: rgba(232,234,240,0.22);
+      line-height: 1.6;
     }
   </style>
-
-  <script>
-    var target = "https://93kkp.xyz/";
-    var countdown = 3;
-    function tick() {
-      var el = document.getElementById('cd');
-      if (!el) return;
-      el.textContent = countdown;
-      if (countdown <= 0) { window.location.href = target; return; }
-      countdown--;
-      setTimeout(tick, 1000);
-    }
-    window.addEventListener('DOMContentLoaded', tick);
-  </script>
 </head>
 <body>
-  <div class="card">
-    <img class="banner" src="https://i.ibb.co/0RDCGh3T/Chat-GPT-Image-2026-5-14-17-13-46.png" alt="青青草视频" />
-    <div class="play-icon">▶ 正在播放</div>
-    <div class="name">点击播放完整版</div>
-    <div class="progress-wrap"><div class="progress-bar"></div></div>
-    <a class="btn" href="https://93kkp.xyz/">立即观看完整版 →</a>
-    <div class="footer"><span id="cd">3</span> 秒后自动跳转</div>
+
+  <!-- 年龄验证层 -->
+  <div class="age-gate" id="ageGate">
+    <div class="age-gate-box">
+      <h2>🔞 年龄确认</h2>
+      <p>本网站内容仅限 <strong style="color:#4ade80;">18 岁及以上</strong>用户访问。<br>
+      继续浏览即表示您已满 18 岁，并同意我们的用户协议。</p>
+      <div class="age-gate-btns">
+        <button class="btn-primary" onclick="confirmAge()">我已满 18 岁，进入</button>
+        <button class="btn-secondary" onclick="window.location.href='https://www.google.com'">未满 18 岁，离开</button>
+      </div>
+    </div>
   </div>
+
+  <!-- 主内容 -->
+  <div class="main-container" id="mainContent">
+    <div class="card">
+      <!-- LOGO 区域 -->
+      <div class="logo-box">
+        <div class="logo-text">青青草视频</div>
+        <div class="logo-subtitle">有 趣 有 料</div>
+      </div>
+
+      <!-- 预览图（模糊处理增加期待感） -->
+      <div class="preview-img"></div>
+
+      <!-- 状态文字 -->
+      <div class="status-text">▶ 正在播放</div>
+      <div class="title">点击播放完整版</div>
+      <div class="progress-bar">
+        <div class="progress-bar-inner"></div>
+      </div>
+
+      <!-- 下载按钮 -->
+      <button class="download-btn" onclick="goDownload()">
+        立即观看完整版 →
+      </button>
+
+      <!-- 特性介绍 -->
+      <div class="features">
+        🎬 4K 高清画质 &nbsp;|&nbsp; 📱 永久免费<br>
+        💎 每日更新 &nbsp;|&nbsp; 🔥 海量资源
+      </div>
+    </div>
+
+    <!-- 底部声明 -->
+    <div class="footer">
+      本站内容仅限成年人观看 · 请遵守当地法律法规<br>
+      © 2026 青青草视频 · 所有权利保留
+    </div>
+  </div>
+
+  <script>
+    // 检查是否已确认年龄（保存在 localStorage）
+    if (localStorage.getItem('age_confirmed') === 'true') {
+      document.getElementById('ageGate').style.display = 'none';
+      document.getElementById('mainContent').classList.add('active');
+    }
+
+    function confirmAge() {
+      localStorage.setItem('age_confirmed', 'true');
+      document.getElementById('ageGate').style.display = 'none';
+      document.getElementById('mainContent').classList.add('active');
+    }
+
+    function goDownload() {
+      // ⬇️ 这里改成你的真实下载链接
+      window.location.href = 'https://你的下载页地址.com/download';
+    }
+  </script>
 </body>
 </html>

